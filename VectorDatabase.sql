@@ -45,6 +45,7 @@ TheDate DATETIME,
 AntennaTestType VARCHAR(17),
 GPSLong FLOAT,
 GPSLat FLOAT,
+GPSAccuracy VARCHAR(28),
 -- FOREIGN KEYS --
 Username VARCHAR(9),
 TestingDeviceId VARCHAR(8),
@@ -62,7 +63,7 @@ RSRP FLOAT,
 Timeout BOOLEAN,
 Network VARCHAR(14),
 RawArray LONGTEXT,
-ModemStatus VARCHAR(24),
+ModemStatus VARCHAR(37),
 -- FOREIGN KEY --
 WorkOrderNo VARCHAR(11) NOT NULL,
 FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
@@ -76,7 +77,7 @@ RSRP FLOAT,
 Timeout BOOLEAN,
 Network VARCHAR(14),
 RawArray LONGTEXT,
-ModemStatus VARCHAR(24),
+ModemStatus VARCHAR(37),
 -- FOREIGN KEY --
 WorkOrderNo VARCHAR(11) NOT NULL,
 FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
@@ -90,7 +91,7 @@ RSRP FLOAT,
 Timeout BOOLEAN,
 Network VARCHAR(14),
 RawArray LONGTEXT,
-ModemStatus VARCHAR(24),
+ModemStatus VARCHAR(37),
 -- FOREIGN KEY --
 WorkOrderNo VARCHAR(11) NOT NULL,
 FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
@@ -104,7 +105,7 @@ RSRP FLOAT,
 Timeout BOOLEAN,
 Network VARCHAR(14),
 RawArray LONGTEXT,
-ModemStatus VARCHAR(24),
+ModemStatus VARCHAR(37),
 -- FOREIGN KEY --
 WorkOrderNo VARCHAR(11) NOT NULL,
 FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
@@ -118,7 +119,7 @@ RSRP FLOAT,
 Timeout BOOLEAN,
 Network VARCHAR(14),
 RawArray LONGTEXT,
-ModemStatus VARCHAR(24),
+ModemStatus VARCHAR(37),
 -- FOREIGN KEY --
 WorkOrderNo VARCHAR(11) NOT NULL,
 FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)

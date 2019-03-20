@@ -18,13 +18,13 @@ INSERT INTO Threshold(RSSIThreshold, RSSIHigherThreshold, RSCPThreshold, RSCPHig
 (6.0, 12.0, 15.0, 30.0, 10.0, 20.0);
 
 -- Work Order --
-INSERT INTO WorkOrder(WorkOrderNo, TheDate, AntennaTestType, GPSLong, GPSLat, ThresholdId, Username, TestingDeviceId) VALUES 
-('WO-00104116', DATE_FORMAT(STR_TO_DATE("1-5-2018--8-5", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.7524324, -27.60477169, 1, "Pikachu", 'SDS-043C'),
-('WO-00251301', DATE_FORMAT(STR_TO_DATE("19-2-2019--13-14", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', NULL, NULL, 1, "Eevee", 'SDS-196B'),
-('WO-00105349', DATE_FORMAT(STR_TO_DATE("30-4-2018--14-48", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 139.34259429587, -35.6776790181507, 1, "Celebi", 'SDS-061C'),
-('WO-00110610', DATE_FORMAT(STR_TO_DATE("17-4-2018--10-41", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.984367638172, -27.4171041995673, 1, "Snorlax", 'SDS-008C'),
-('WO-00110925', DATE_FORMAT(STR_TO_DATE("26-4-2018--10-31", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 153.024695282944, -27.1806907654062, 1, "Charizard", 'SDS-049C'),
-('WO-00248593', DATE_FORMAT(STR_TO_DATE("19-2-2019--8-42", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.971914761231,  -27.0792295037818, 1, "Mewtwo", 'SDS-026C');
+INSERT INTO WorkOrder(WorkOrderNo, TheDate, AntennaTestType, GPSLong, GPSLat, GPSAccuracy, ThresholdId, Username, TestingDeviceId) VALUES 
+('WO-00104116', DATE_FORMAT(STR_TO_DATE("1-5-2018--8-5", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.7524324, -27.60477169, 'kCLLocationAccuracyKilometer', 1, "Pikachu", 'SDS-043C'),
+('WO-00251301', DATE_FORMAT(STR_TO_DATE("19-2-2019--13-14", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', NULL, NULL, 'kCLLocationAccuracyKilometer', 1, "Eevee", 'SDS-196B'),
+('WO-00105349', DATE_FORMAT(STR_TO_DATE("30-4-2018--14-48", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 139.34259429587, -35.6776790181507, 'kCLLocationAccuracyKilometer', 1, "Celebi", 'SDS-061C'),
+('WO-00110610', DATE_FORMAT(STR_TO_DATE("17-4-2018--10-41", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.984367638172, -27.4171041995673, 'kCLLocationAccuracyKilometer', 1, "Snorlax", 'SDS-008C'),
+('WO-00110925', DATE_FORMAT(STR_TO_DATE("26-4-2018--10-31", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 153.024695282944, -27.1806907654062, 'kCLLocationAccuracyKilometer', 1, "Charizard", 'SDS-049C'),
+('WO-00248593', DATE_FORMAT(STR_TO_DATE("19-2-2019--8-42", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade/Whip', 152.971914761231,  -27.0792295037818, 'kCLLocationAccuracyKilometer', 1, "Mewtwo", 'SDS-026C');
 
 
 -- TODO
