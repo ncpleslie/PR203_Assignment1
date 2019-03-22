@@ -43,8 +43,7 @@ CREATE TABLE IF NOT EXISTS WorkOrder(
 WorkOrderNo VARCHAR(11) NOT NULL PRIMARY KEY,
 TheDate DATETIME,
 AntennaTestType ENUM("Blade and/or Whip"),
-GPSLong FLOAT,
-GPSLat FLOAT,
+Location POINT,
 GPSAccuracy ENUM("kCLLocationAccuracyKilometer"),
 -- FOREIGN KEYS --
 Username VARCHAR(9),
