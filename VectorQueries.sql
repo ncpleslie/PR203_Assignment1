@@ -74,3 +74,41 @@ WHERE
 GROUP BY TelstraWhipTest.Network;
         
 
+-- 6. Count the number of signal log files per Bluetooth Names and print out each of the locations.
+-- Assumptions:
+/* Signal Log Files refers to the text documents received from Vector */
+
+SELECT 
+    testingdevice.BTName,
+    COUNT(workOrder.workOrderNo) AS 'Log File relating to Bluetooth Name',
+    ST_X(location) AS 'X Location',
+    ST_Y(location) AS 'Y Location'
+FROM
+    testingdevice,
+    workOrder
+WHERE
+    testingDevice.DeviceSerialNo = workOrder.TestingDeviceId
+GROUP BY testingDevice.btName;
+
+-- 7. count the number of log files without GPS coordinates and sort them by iPad models
+
+SELECT 
+    COUNT(workOrder.workOrderNo),
+    workOrder.location,
+    testingDevice.deviceType
+FROM
+    workOrder,
+    testingDevice
+WHERE
+    testingDevice.DeviceSerialNo = workOrder.TestingDeviceId
+        AND ST_X(location) IS NULL
+        AND ST_Y(location) IS NULL
+ORDER BY testingDevice.deviceType;
+
+-- 8. count the number of whip antenna tested vs blade antenna tested
+
+-- 9. Count the number of different modem types used during the test
+SELECT COUNT(DISTINCT modemType) as "No. of modem types" FROM testingDevice;
+
+-- 10. Count the number of number of different installers
+SELECT COUNT(DISTINCT username) as "No. of installers" FROM employee;

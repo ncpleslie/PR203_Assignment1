@@ -47,10 +47,10 @@ Location POINT,
 GPSAccuracy ENUM("kCLLocationAccuracyKilometer"),
 -- FOREIGN KEYS --
 Username VARCHAR(9),
-TestingDeviceId VARCHAR(8),
+DeviceSerialNo VARCHAR(8),
 ThresholdId INT,
 FOREIGN KEY (Username) REFERENCES Employee(Username),
-FOREIGN KEY (TestingDeviceId) REFERENCES TestingDevice(DeviceSerialNo),
+FOREIGN KEY (DeviceSerialNo) REFERENCES TestingDevice(DeviceSerialNo),
 FOREIGN KEY (ThresholdId) REFERENCES Threshold(ThresholdId)
 ) engine = InnoDB;
 
