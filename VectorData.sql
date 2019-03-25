@@ -7,31 +7,31 @@ INSERT INTO Employee(Username) VALUES
 ,("Snorlax")
 ,("Charizard")
 ,("Mewtwo");
-INSERT INTO TestingDevice(DeviceSerialNo, DeviceType, BatteryLevel, AppVersionNo) VALUES 
-('SDS-043C', 'iPad Air', 3.92,  '2.2.5')
-,("SDS-196B", "iPad6,12", 3.92,  "2.2.5")
-,("SDS-061C", "iPad Air", 3.88,  "2.2.5")
-,("SDS-008C", "iPad6,12", 3.94,  "2.2.5")
-,("SDS-049C", "iPad7,2", 3.69,  "2.2.5")
-,("SDS-026C", "iPad Air", 3.88,  "2.2.5");
-INSERT INTO SignalTester(BTName, ModemType, FirmwareNo, BTSignal, SIMVodafone, SIMTelstra, SIMExternal) VALUES 
-('CORSSRAY', 'EWM400', 'GAT-17R3',  '[-76.0, -72.0, -66.0]', "89314404000248186935", "89610180002249048341", NULL)
-,("REAPER","EWM400", "GAT-17R3",  "[-59.0, -52.0]", "89314404000248157530", "89610180002243817774", NULL)
-,("DIXIE", "EWM400", "GAT-17R3", "[-83.0, -74.0, -79.0]", "89314404000266650267", "89610180002249046930", NULL)
-,("ASSAM", "EWM1000", "GAT-17R3",  "[-91.0, -87.0, -81.0, -70.0, -86.0, -74.0, -76.0]", NULL, NULL, "89314404000266723023")
-,("DAIBRAVE", "EWM400", "GAT-17R3",  "[-76.0, -69.0, -69.0, -76.0, -73.0, -76.0]", "89314404000248233075", "89610180002249047685", NULL)
-,("CARIVOU", "EWM400", "GAT-17R3", "[-76.0, -85.0]", "89314404000281178914", "89610180002249045296", NULL);
+INSERT INTO TestingDevice(DeviceNo, DeviceType, BatteryLevel, AppVersionNo) VALUES 
+(1, 'iPad Air', 3.92,  '2.2.5')
+,(2, "iPad6,12", 3.92,  "2.2.5")
+,(3, "iPad Air", 3.88,  "2.2.5")
+,(4, "iPad6,12", 3.94,  "2.2.5")
+,(5, "iPad7,2", 3.69,  "2.2.5")
+,(6, "iPad Air", 3.88,  "2.2.5");
+INSERT INTO SignalTester(DeviceSerialNo, BTName, ModemType, FirmwareNo, BTSignal, SIMVodafone, SIMTelstra, SIMExternal) VALUES 
+('SDS-043C', 'CORSSRAY', 'EWM400', 'GAT-17R3',  '[-76.0, -72.0, -66.0]', "89314404000248186935", "89610180002249048341", NULL)
+,('SDS-196B', "REAPER","EWM400", "GAT-17R3",  "[-59.0, -52.0]", "89314404000248157530", "89610180002243817774", NULL)
+,('SDS-061C', "DIXIE", "EWM400", "GAT-17R3", "[-83.0, -74.0, -79.0]", "89314404000266650267", "89610180002249046930", NULL)
+,('SDS-008C', "ASSAM", "EWM1000", "GAT-17R3",  "[-91.0, -87.0, -81.0, -70.0, -86.0, -74.0, -76.0]", NULL, NULL, "89314404000266723023")
+,('SDS-049C', "DAIBRAVE", "EWM400", "GAT-17R3",  "[-76.0, -69.0, -69.0, -76.0, -73.0, -76.0]", "89314404000248233075", "89610180002249047685", NULL)
+,('SDS-026C', "CARIVOU", "EWM400", "GAT-17R3", "[-76.0, -85.0]", "89314404000281178914", "89610180002249045296", NULL);
 INSERT INTO Threshold(RSSIThreshold, RSSIHigherThreshold, RSCPThreshold, RSCPHigherThreshold, RSRPThreshold, RSRPHigherThreshold) VALUES
 (6.0, 12.0, 15.0, 30.0, 10.0, 20.0);
 
 -- Work Order --
-INSERT INTO WorkOrder(WorkOrderNo, TheDate, AntennaTestType, Location, GPSAccuracy, ThresholdId, Username, DeviceSerialNo, BTName) VALUES 
-('WO-00104116', DATE_FORMAT(STR_TO_DATE("1-5-2018--8-5", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.7524324, -27.60477169), 'kCLLocationAccuracyKilometer', 1, "Pikachu", 'SDS-043C', 'CORSSRAY'),
-('WO-00251301', DATE_FORMAT(STR_TO_DATE("19-2-2019--13-14", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(NULL, NULL), 'kCLLocationAccuracyKilometer', 1, "Eevee", 'SDS-196B', 'REAPER'),
-('WO-00105349', DATE_FORMAT(STR_TO_DATE("30-4-2018--14-48", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(139.34259429587, -35.6776790181507), 'kCLLocationAccuracyKilometer', 1, "Celebi", 'SDS-061C', 'DIXIE'),
-('WO-00110610', DATE_FORMAT(STR_TO_DATE("17-4-2018--10-41", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.984367638172, -27.4171041995673), 'kCLLocationAccuracyKilometer', 1, "Snorlax", 'SDS-008C', 'ASSAM'),
-('WO-00110925', DATE_FORMAT(STR_TO_DATE("26-4-2018--10-31", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(153.024695282944, -27.1806907654062), 'kCLLocationAccuracyKilometer', 1, "Charizard", 'SDS-049C', 'DAIBRAVE'),
-('WO-00248593', DATE_FORMAT(STR_TO_DATE("19-2-2019--8-42", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.971914761231,  -27.0792295037818), 'kCLLocationAccuracyKilometer', 1, "Mewtwo", 'SDS-026C', 'CARIVOU');
+INSERT INTO WorkOrder(WorkOrderNo, TheDate, AntennaTestType, Location, GPSAccuracy, ThresholdId, Username, DeviceSerialNo, DeviceNo) VALUES 
+('WO-00104116', DATE_FORMAT(STR_TO_DATE("1-5-2018--8-5", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.7524324, -27.60477169), 'kCLLocationAccuracyKilometer', 1, "Pikachu", 'SDS-043C', 1),
+('WO-00251301', DATE_FORMAT(STR_TO_DATE("19-2-2019--13-14", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(NULL, NULL), 'kCLLocationAccuracyKilometer', 1, "Eevee", 'SDS-196B', 2),
+('WO-00105349', DATE_FORMAT(STR_TO_DATE("30-4-2018--14-48", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(139.34259429587, -35.6776790181507), 'kCLLocationAccuracyKilometer', 1, "Celebi", 'SDS-061C', 3),
+('WO-00110610', DATE_FORMAT(STR_TO_DATE("17-4-2018--10-41", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.984367638172, -27.4171041995673), 'kCLLocationAccuracyKilometer', 1, "Snorlax", 'SDS-008C', 4),
+('WO-00110925', DATE_FORMAT(STR_TO_DATE("26-4-2018--10-31", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(153.024695282944, -27.1806907654062), 'kCLLocationAccuracyKilometer', 1, "Charizard", 'SDS-049C', 5),
+('WO-00248593', DATE_FORMAT(STR_TO_DATE("19-2-2019--8-42", "%d-%m-%Y--%H-%i"),'%Y-%m-%d %H:%i'), 'Blade and/or Whip', POINT(152.971914761231,  -27.0792295037818), 'kCLLocationAccuracyKilometer', 1, "Mewtwo", 'SDS-026C', 6);
 
 
 -- BLADE TESTS

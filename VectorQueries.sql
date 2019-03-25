@@ -87,8 +87,8 @@ FROM
     signalTester,
     workOrder
 WHERE
-    workOrder.btName = SignalTester.btName
-GROUP BY signalTester.btName;
+    workOrder.DeviceSerialNo = SignalTester.DeviceSerialNo
+GROUP BY signalTester.BTName;
 
 -- 7. count the number of log files without GPS coordinates and sort them by iPad models
 
@@ -100,7 +100,7 @@ FROM
     workOrder,
     testingDevice
 WHERE
-    testingDevice.DeviceSerialNo = workOrder.DeviceSerialNo
+    testingDevice.DeviceNo = workOrder.DeviceNo
         AND ST_X(location) IS NULL
         AND ST_Y(location) IS NULL
 ORDER BY testingDevice.deviceType;

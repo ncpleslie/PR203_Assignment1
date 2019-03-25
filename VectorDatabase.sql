@@ -16,15 +16,16 @@ Username VARCHAR(9) NOT NULL PRIMARY KEY
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS TestingDevice(
-DeviceSerialNo VARCHAR(8) NOT NULL PRIMARY KEY,
+DeviceNo INT NOT NULL PRIMARY KEY,
 DeviceType ENUM("iPad Air", "iPad6,12", "iPad7,2"),
-BatteryLevel FLOAT,
+BatteryLevel FLOAT(3,2),
 ModemType ENUM("EWM400", "EWM1000"),
 AppVersionNo VARCHAR(5)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS SignalTester(
-BTName VARCHAR(8) PRIMARY KEY,
+DeviceSerialNo VARCHAR(8) NOT NULL PRIMARY KEY,
+BTName VARCHAR(8),
 BTSignal LONGTEXT,
 ModemType ENUM("EWM400", "EWM1000"),
 FirmwareNo ENUM("GAT-17R3"),
@@ -51,13 +52,13 @@ Location POINT,
 GPSAccuracy ENUM("kCLLocationAccuracyKilometer"),
 -- FOREIGN KEYS --
 Username VARCHAR(9),
-DeviceSerialNo VARCHAR(8),
+DeviceNo INT,
 ThresholdId INT,
-BTName VARCHAR(8),
+DeviceSerialNo VARCHAR(8),
 FOREIGN KEY (Username) REFERENCES Employee(Username),
-FOREIGN KEY (DeviceSerialNo) REFERENCES TestingDevice(DeviceSerialNo),
+FOREIGN KEY (DeviceNo) REFERENCES TestingDevice(DeviceNo),
 FOREIGN KEY (ThresholdId) REFERENCES Threshold(ThresholdId),
-FOREIGN KEY (BTName) REFERENCES SignalTester(BTName)
+FOREIGN KEY (DeviceSerialNo) REFERENCES SignalTester(DeviceSerialNo)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS ExternalModemTest(
