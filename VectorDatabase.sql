@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS TestingDevice(
 DeviceNo INT NOT NULL PRIMARY KEY,
 DeviceType ENUM("iPad Air", "iPad6,12", "iPad7,2"),
 BatteryLevel FLOAT(3,2),
-ModemType ENUM("EWM400", "EWM1000"),
 AppVersionNo VARCHAR(5)
 ) engine = InnoDB;
 
@@ -28,7 +27,7 @@ DeviceSerialNo VARCHAR(8) NOT NULL PRIMARY KEY,
 BTName VARCHAR(8),
 BTSignal LONGTEXT,
 ModemType ENUM("EWM400", "EWM1000"),
-FirmwareNo ENUM("GAT-17R3"),
+FirmwareNo VARCHAR(8),
 SIMVodafone VARCHAR(20),
 SIMTelstra VARCHAR(20),
 SIMExternal VARCHAR(20)
@@ -36,12 +35,12 @@ SIMExternal VARCHAR(20)
 
 CREATE TABLE IF NOT EXISTS Threshold(
 ThresholdId INT NOT NULL auto_increment PRIMARY KEY,
-RSSIThreshold FLOAT,
-RSSIHigherThreshold FLOAT,
-RSCPThreshold FLOAT,
-RSCPHigherThreshold FLOAT,
-RSRPThreshold FLOAT,
-RSRPHigherThreshold FLOAT
+RSSIThreshold FLOAT(3,1),
+RSSIHigherThreshold FLOAT(3,1),
+RSCPThreshold FLOAT(3,1),
+RSCPHigherThreshold FLOAT(3,1),
+RSRPThreshold FLOAT(3,1),
+RSRPHigherThreshold FLOAT(3,1)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS WorkOrder(
@@ -63,9 +62,9 @@ FOREIGN KEY (DeviceSerialNo) REFERENCES SignalTester(DeviceSerialNo)
 
 CREATE TABLE IF NOT EXISTS ExternalModemTest(
 ExternalBladeTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-RSSI FLOAT,
-RSCP FLOAT,
-RSRP FLOAT,
+RSSI FLOAT(11, 8),
+RSCP FLOAT(11, 8),
+RSRP FLOAT(11, 8),
 Timeout BOOLEAN,
 Network ENUM("vodafone AU", "Unknown", "Telstra Mobile"),
 RawArray LONGTEXT,
@@ -77,9 +76,9 @@ FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
 
 CREATE TABLE IF NOT EXISTS TelstraBladeTest(
 TelstraBladeTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-RSSI FLOAT,
-RSCP FLOAT,
-RSRP FLOAT,
+RSSI FLOAT(11, 8),
+RSCP FLOAT(11, 8),
+RSRP FLOAT(11, 8),
 Timeout BOOLEAN,
 Network ENUM("vodafone AU", "Unknown", "Telstra Mobile"),
 RawArray LONGTEXT,
@@ -91,9 +90,9 @@ FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
 
 CREATE TABLE IF NOT EXISTS TelstraWhipTest(
 TelstraWhipTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-RSSI FLOAT,
-RSCP FLOAT,
-RSRP FLOAT,
+RSSI FLOAT(11, 8),
+RSCP FLOAT(11, 8),
+RSRP FLOAT(11, 8),
 Timeout BOOLEAN,
 Network ENUM("vodafone AU", "Unknown", "Telstra Mobile"),
 RawArray LONGTEXT,
@@ -105,9 +104,9 @@ FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
 
 CREATE TABLE IF NOT EXISTS VodafoneBladeTest(
 VodafoneBladeTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-RSSI FLOAT,
-RSCP FLOAT,
-RSRP FLOAT,
+RSSI FLOAT(11, 8),
+RSCP FLOAT(11, 8),
+RSRP FLOAT(11, 8),
 Timeout BOOLEAN,
 Network ENUM("vodafone AU", "Unknown", "Telstra Mobile"),
 RawArray LONGTEXT,
@@ -119,9 +118,9 @@ FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(WorkOrderNo)
 
 CREATE TABLE IF NOT EXISTS VodafoneWhipTest(
 VodafoneWhipTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-RSSI FLOAT,
-RSCP FLOAT,
-RSRP FLOAT,
+RSSI FLOAT(11, 8),
+RSCP FLOAT(11, 8),
+RSRP FLOAT(11, 8),
 Timeout BOOLEAN,
 Network ENUM("vodafone AU", "Unknown", "Telstra Mobile"),
 RawArray LONGTEXT,
