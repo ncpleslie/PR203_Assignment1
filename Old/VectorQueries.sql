@@ -6,20 +6,6 @@ USE vector;
 network provider? (If both blade and whip passed the test for the same Work Order
 Number only consider that as blade) */
 
-SELECT 
-  --  COUNT(testResults.network),
-    testResults.network,
-    testResults.antennaType
-FROM
-    threshold,
-    workorder,
-    testResults
-WHERE
-    testResults.TestNetworkType NOT LIKE 'External Modem'
-        AND (testResults.RSSI > threshold.RSSIThreshold
-        OR testResults.RSCP > threshold.RSCPThreshold
-        OR testResults.RSRP > threshold.RSRPThreshold)
-        AND testResults.workOrderNo = workOrder.workOrderNo;
 
 -- Vodafone Blade
 SELECT 
@@ -102,10 +88,10 @@ FROM
     workOrder
 WHERE
     workOrder.DeviceSerialNo = SignalTester.DeviceSerialNo
-GROUP BY workOrder.workOrderNo;
+GROUP BY signalTester.BTName;
 
 -- 7. count the number of log files without GPS coordinates and sort them by iPad models
--- TODO FIX
+
 SELECT 
     COUNT(workOrder.workOrderNo),
     workOrder.location,
@@ -117,7 +103,6 @@ WHERE
     testingDevice.DeviceNo = workOrder.DeviceNo
         AND ST_X(location) IS NULL
         AND ST_Y(location) IS NULL
-GROUP BY workorder.workorderNo
 ORDER BY testingDevice.deviceType;
 
 -- 8. count the number of whip antenna tested vs blade antenna tested
