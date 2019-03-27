@@ -35,7 +35,7 @@ INSERT INTO WorkOrder(WorkOrderNo, TheDate, Location, GPSAccuracy, ThresholdId, 
 
 
 -- BLADE TESTS
-INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType, RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
+INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType, RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "Vodafone", "Blade", 0.0, 14.625, 23.08333333, False, "vodafone AU", '["39_33-1", "39_33-1", "39_37-1", "99_99-0", "99_99-0", "99_99-0", "99_99-0", "99_99-0", "40_18-4", "40_18-4", "40_18-4", "39_29-4", "39_23-4", "39_23-4", "40_29-4"]', "Registered, Roaming"),
 ('WO-00251301', "Vodafone", "Blade", 0.0, 0.0, 0.0, True, "Unknown", '[]', "Registeration Denied"),
 ('WO-00105349', "Vodafone", "Blade", 0.0, 0.0, 0.0, True, "Unknown", '[]', "Not Registered, searching for network"),
@@ -43,7 +43,7 @@ INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType, RSSI, RSCP, R
 ('WO-00110925', "Vodafone", "Blade", 0.0, 12.0, 26.9230769230769, False, "vodafone AU", '["42_43-1", "42_43-1", "99_99-0", "99_99-0", "99_99-0", "99_99-0", "99_99-0", "41_17-4", "41_17-4", "43_22-4", "45_24-4", "45_26-4", "45_23-4", "45_24-4", "45_24-4"]', "Registered, Roaming"),
 ('WO-00248593', "Vodafone", "Blade", 0.0, 0.0, 0.0, True, "Unknown", '[]', "Registeration Denied");
 
-INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
+INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "Telstra", "Blade", 0.0, 20.5, 21.76923077, False, "Telstra Mobile", '["41_33-2", "41_33-2", "41_33-2", "99_99-0", "99_99-0", "99_99-0", "28_6-4", "29_6-4", "29_6-4", "28_4-4", "28_7-4", "27_2-4", "28_6-4", "29_11-4", "29_11-4", "28_7-4"]', "Registered, home network"),
 ('WO-00251301', "Telstra", "Blade", 0.0, 0.0, 61.1333333333333, False, "Telstra Mobile", '["58_12-6", "61_19-6", "61_30-6", "61_30-6", "62_30-6", "62_32-6", "62_32-6", "61_26-6", "61_26-6", "61_30-6", "61_29-6", "61_21-6", "62_27-6", "62_27-6", "61_31-6"]', "Registered, home network"),
 ('WO-00105349', "Telstra", "Blade", 0.0, 27.2, 0.0, False, "Telstra Mobile", '["28_31-2", "26_27-2", "26_27-2", "26_25-2", "26_25-2", "26_25-2", "25_27-2", "25_27-2", "28_31-2", "28_31-2", "28_31-2", "30_29-2", "30_29-2", "25_25-2", "25_25-2", "25_25-2", "26_29-2", "26_29-2", "26_29-2", "28_29-2", "28_29-2", "28_29-2", "28_29-2", "28_29-2", "29_31-2", "29_31-2", "28_31-2", "28_31-2", "28_31-2", "29_31-2"]', "Registered, home network"),
@@ -52,7 +52,7 @@ INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, 
 ('WO-00248593', "Telstra", "Blade", 0.0, 0.0, 46.0666666666667, False, "Telstra Mobile", ' ["43_19-6", "43_19-6", "47_23-6", "47_23-6", "47_18-6", "47_18-6", "46_19-6", "46_19-6", "46_19-6", "44_12-6", "47_26-6", "47_23-6", "47_25-6", "47_28-6", "47_28-6"]', "Registered, home network");
 
 -- WHIP TESTS --
-INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
+INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "Vodafone", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00251301', "Vodafone", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00105349', "Vodafone", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
@@ -60,7 +60,7 @@ INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, 
 ('WO-00110925', "Vodafone", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00248593', "Vodafone", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL);
 
-INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
+INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00251301', "Telstra", "Whip",  0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00105349', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
@@ -69,15 +69,10 @@ INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, 
 ('WO-00248593', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL);
 
 -- EXTERNAL TEXTS --
-INSERT INTO TestResults(WorkOrderNo, TestNetworkType, AntennaType, RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
+INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType, RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "External Modem", NULL, 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00251301', "External Modem", NULL, 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00105349', "External Modem", NULL, 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00110610', "External Modem", NULL, 9.0, 0.0, 0.0, False, 'vodafone AU', '["9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I", "9_99-I"]', "Registered, Roaming"),
 ('WO-00110925', "External Modem", NULL, 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00248593', "External Modem", NULL, 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL);
-
-
-
-SELECT * FROM workorder;
-SELECT * FROM TestResults;

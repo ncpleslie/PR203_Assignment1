@@ -6,87 +6,24 @@ USE vector;
 network provider? (If both blade and whip passed the test for the same Work Order
 Number only consider that as blade) */
 
-SELECT 
-  --  COUNT(testResults.network),
-    testResults.network,
-    testResults.antennaType
+SELECT
+    -- COUNT(testResult.network),
+    testResult.network,
+    testResult.antennaType,
+    (CASE WHEN (testResult.antennaType = "Blade" AND testResult.antennaType = "Whip") THEN 
+    (CASE WHEN (testResult.antennaType = "Blade") THEN COUNT(testResult.antennaType) END)
+	END)
 FROM
     threshold,
     workorder,
-    testResults
+    testResult
 WHERE
-    testResults.TestNetworkType NOT LIKE 'External Modem'
-        AND (testResults.RSSI > threshold.RSSIThreshold
-        OR testResults.RSCP > threshold.RSCPThreshold
-        OR testResults.RSRP > threshold.RSRPThreshold)
-        AND testResults.workOrderNo = workOrder.workOrderNo;
-
--- Vodafone Blade
-SELECT 
-    COUNT(WorkOrder.WorkOrderNo) as BladeCount,
-    VodafoneBladeTest.Network AS VodafoneBlade
-FROM
-    Threshold,
-    VodafoneBladeTest,
-    WorkOrder
-WHERE
-    (VodafoneBladeTest.RSSI > Threshold.RSSIThreshold
-        OR VodafoneBladeTest.RSCP > Threshold.RSCPThreshold
-        OR VodafoneBladeTest.RSRP > Threshold.RSRPThreshold)
-        AND VodafoneBladeTest.WorkOrderNo = WorkOrder.WorkOrderNo
-GROUP BY VodafoneBladeTest.Network
-
-UNION
-
--- Vodafone Whip
-SELECT 
-    COUNT(WorkOrder.WorkOrderNo) as WhipCount,
-    VodafoneWhipTest.Network AS VodafoneWhip
-FROM
-    Threshold,
-    VodafoneWhipTest,
-    WorkOrder
-WHERE
-    (VodafoneWhipTest.RSSI > Threshold.RSSIThreshold
-        OR VodafoneWhipTest.RSCP > Threshold.RSCPThreshold
-        OR VodafoneWhipTest.RSRP > Threshold.RSRPThreshold)
-        AND VodafoneWhipTest.WorkOrderNo = WorkOrder.WorkOrderNo
-GROUP BY VodafoneWhipTest.Network
-
-UNION
-
--- Telstra Blade
-SELECT 
-    COUNT(WorkOrder.WorkOrderNo) as BladeCount,
-    TelstraBladeTest.Network AS TelstraBlade
-FROM
-    Threshold,
-    TelstraBladeTest,
-    WorkOrder
-WHERE
-    (TelstraBladeTest.RSSI > Threshold.RSSIThreshold
-        OR TelstraBladeTest.RSCP > Threshold.RSCPThreshold
-        OR TelstraBladeTest.RSRP > Threshold.RSRPThreshold)
-        AND TelstraBladeTest.WorkOrderNo = WorkOrder.WorkOrderNo
-GROUP BY TelstraBladeTest.Network
-
-UNION
-
--- Telstra Whip
-SELECT 
-    COUNT(WorkOrder.WorkOrderNo) as WhipCount,
-    TelstraWhipTest.Network AS TelstraWhip
-FROM
-    Threshold,
-    TelstraWhipTest,
-    WorkOrder
-WHERE
-    (TelstraWhipTest.RSSI > Threshold.RSSIThreshold
-        OR TelstraWhipTest.RSCP > Threshold.RSCPThreshold
-        OR TelstraWhipTest.RSRP > Threshold.RSRPThreshold)
-        AND TelstraWhipTest.WorkOrderNo = WorkOrder.WorkOrderNo
-GROUP BY TelstraWhipTest.Network;
-        
+    testResult.TestNetworkType NOT LIKE 'External Modem' -- Excluding External Modem since out of scope of question(Neither Blade or whip)
+    AND testResult.workOrderNo = workOrder.workOrderNo AND
+   (testResult.RSSI > threshold.RSSIThreshold
+        OR testResult.RSCP > threshold.RSCPThreshold
+        OR testResult.RSRP > threshold.RSRPThreshold) 
+GROUP BY testResult.network;       
 
 -- 6. Count the number of signal log files per Bluetooth Names and print out each of the locations.
 -- Assumptions:
@@ -105,7 +42,7 @@ WHERE
 GROUP BY workOrder.workOrderNo;
 
 -- 7. count the number of log files without GPS coordinates and sort them by iPad models
--- TODO FIX
+
 SELECT 
     COUNT(workOrder.workOrderNo),
     workOrder.location,

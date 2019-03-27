@@ -57,7 +57,7 @@ FOREIGN KEY (ThresholdId) REFERENCES Threshold(ThresholdId),
 FOREIGN KEY (DeviceSerialNo) REFERENCES SignalTester(DeviceSerialNo)
 ) engine = InnoDB;
 
-CREATE TABLE IF NOT EXISTS TestResults(
+CREATE TABLE IF NOT EXISTS TestResult(
 ExternalBladeTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 TestNetworkType ENUM("Telstra", "Vodafone", "External Modem"),
 AntennaType ENUM("Whip", "Blade"),
