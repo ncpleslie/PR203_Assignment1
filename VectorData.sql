@@ -62,7 +62,7 @@ INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, R
 
 INSERT INTO TestResult(WorkOrderNo, TestNetworkType, AntennaType,  RSSI, RSCP, RSRP, Timeout, Network, Rawarray, ModemStatus) VALUES
 ('WO-00104116', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
-('WO-00251301', "Telstra", "Whip",  0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
+('WO-00251301', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00105349', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00110610', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
 ('WO-00110925', "Telstra", "Whip", 0.0, 0.0, 0.0, False, 'Unknown', '[]', NULL),
