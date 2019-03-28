@@ -1,5 +1,4 @@
 USE vector;
-
 -- This is the query file
 
 /* 1. How many blade and whip antennas have been passed in the signal test for each
@@ -9,11 +8,11 @@ SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 SELECT 
    testResult.network as "Network Name",
    testResult.antennaType as "Antenna Type (Blade/Whip)",
-    SUM(CASE 
+    CASE 
     WHEN testResult.antennaType = "Blade" AND testResult.antennaType = "Whip" THEN 0
-    WHEN testResult.antennaType = 'Blade' THEN 1
+    WHEN testResult.antennaType = 'Blade' THEN SUM(1)
     WHEN testResult.antennaType = 'Whip' THEN 0 
-    ELSE 0 END) as "Number of Passed Antennas"
+    ELSE COUNT(testResult.antennaType) END as "Number of Passed Antennas"
 FROM
     threshold,
     workorder,
@@ -45,7 +44,7 @@ GROUP BY workOrder.workOrderNo;
 -- 7. count the number of log files without GPS coordinates and sort them by iPad models
 
 SELECT 
-    COUNT(workOrder.workOrderNo),
+    COUNT(workOrder.workOrderNo) as 'Log Count',
     workOrder.location,
     testingDevice.deviceType
 FROM
@@ -61,7 +60,7 @@ ORDER BY testingDevice.deviceType;
 -- 8. count the number of whip antenna tested vs blade antenna tested
 
 SELECT 
-    COUNT(testResult.antennaType),
+    COUNT(testResult.antennaType) as 'Antenna Count',
     testResult.antennaType
 FROM
     testResult,

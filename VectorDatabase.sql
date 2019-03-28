@@ -16,7 +16,6 @@ Username VARCHAR(9) NOT NULL PRIMARY KEY
 CREATE TABLE IF NOT EXISTS TestingDevice(
 DeviceNo INT NOT NULL PRIMARY KEY,
 DeviceType ENUM("iPad Air", "iPad6,12", "iPad7,2"),
-BatteryLevel FLOAT(3,2),
 AppVersionNo VARCHAR(5)
 ) engine = InnoDB;
 
@@ -26,6 +25,7 @@ BTName VARCHAR(8),
 BTSignal LONGTEXT,
 ModemType ENUM("EWM400", "EWM1000"),
 FirmwareNo VARCHAR(8),
+BatteryLevel FLOAT(3,2),
 SIMVodafone VARCHAR(20),
 SIMTelstra VARCHAR(20),
 SIMExternal VARCHAR(20)
@@ -58,7 +58,7 @@ FOREIGN KEY (DeviceSerialNo) REFERENCES SignalTester(DeviceSerialNo)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS TestResult(
-ExternalBladeTestId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+TextResultID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 TestNetworkType ENUM("Telstra", "Vodafone", "External Modem"),
 AntennaType ENUM("Whip", "Blade"),
 RSSI FLOAT(11, 8),

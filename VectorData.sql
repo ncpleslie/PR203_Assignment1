@@ -7,20 +7,20 @@ INSERT INTO Employee(Username) VALUES
 ,("Snorlax")
 ,("Charizard")
 ,("Mewtwo");
-INSERT INTO TestingDevice(DeviceNo, DeviceType, BatteryLevel, AppVersionNo) VALUES 
-(1, 'iPad Air', 3.92,  '2.2.5')
-,(2, "iPad6,12", 3.92,  "2.2.5")
-,(3, "iPad Air", 3.88,  "2.2.5")
-,(4, "iPad6,12", 3.94,  "2.2.5")
-,(5, "iPad7,2", 3.69,  "2.2.5")
-,(6, "iPad Air", 3.88,  "2.2.5");
-INSERT INTO SignalTester(DeviceSerialNo, BTName, ModemType, FirmwareNo, BTSignal, SIMVodafone, SIMTelstra, SIMExternal) VALUES 
-('SDS-043C', 'CORSSRAY', 'EWM400', 'GAT-17R3',  '[-76.0, -72.0, -66.0]', "89314404000248186935", "89610180002249048341", NULL)
-,('SDS-196B', "REAPER","EWM400", "GAT-17R3",  "[-59.0, -52.0]", "89314404000248157530", "89610180002243817774", NULL)
-,('SDS-061C', "DIXIE", "EWM400", "GAT-17R3", "[-83.0, -74.0, -79.0]", "89314404000266650267", "89610180002249046930", NULL)
-,('SDS-008C', "ASSAM", "EWM1000", "GAT-17R3",  "[-91.0, -87.0, -81.0, -70.0, -86.0, -74.0, -76.0]", NULL, NULL, "89314404000266723023")
-,('SDS-049C', "DAIBRAVE", "EWM400", "GAT-17R3",  "[-76.0, -69.0, -69.0, -76.0, -73.0, -76.0]", "89314404000248233075", "89610180002249047685", NULL)
-,('SDS-026C', "CARIVOU", "EWM400", "GAT-17R3", "[-76.0, -85.0]", "89314404000281178914", "89610180002249045296", NULL);
+INSERT INTO TestingDevice(DeviceNo, DeviceType, AppVersionNo) VALUES 
+(1, 'iPad Air', '2.2.5')
+,(2, "iPad6,12", "2.2.5")
+,(3, "iPad Air", "2.2.5")
+,(4, "iPad6,12", "2.2.5")
+,(5, "iPad7,2", "2.2.5")
+,(6, "iPad Air", "2.2.5");
+INSERT INTO SignalTester(DeviceSerialNo, BTName, ModemType, FirmwareNo, BatteryLevel, BTSignal, SIMVodafone, SIMTelstra, SIMExternal) VALUES 
+('SDS-043C', 'CORSSRAY', 'EWM400', 'GAT-17R3', 3.92, '[-76.0, -72.0, -66.0]', "89314404000248186935", "89610180002249048341", NULL)
+,('SDS-196B', "REAPER","EWM400", "GAT-17R3", 3.92, "[-59.0, -52.0]", "89314404000248157530", "89610180002243817774", NULL)
+,('SDS-061C', "DIXIE", "EWM400", "GAT-17R3", 3.88, "[-83.0, -74.0, -79.0]", "89314404000266650267", "89610180002249046930", NULL)
+,('SDS-008C', "ASSAM", "EWM1000", "GAT-17R3", 3.94, "[-91.0, -87.0, -81.0, -70.0, -86.0, -74.0, -76.0]", NULL, NULL, "89314404000266723023")
+,('SDS-049C', "DAIBRAVE", "EWM400", "GAT-17R3", 3.69, "[-76.0, -69.0, -69.0, -76.0, -73.0, -76.0]", "89314404000248233075", "89610180002249047685", NULL)
+,('SDS-026C', "CARIVOU", "EWM400", "GAT-17R3", 3.88, "[-76.0, -85.0]", "89314404000281178914", "89610180002249045296", NULL);
 INSERT INTO Threshold(RSSIThreshold, RSSIHigherThreshold, RSCPThreshold, RSCPHigherThreshold, RSRPThreshold, RSRPHigherThreshold) VALUES
 (6.0, 12.0, 15.0, 30.0, 10.0, 20.0);
 
