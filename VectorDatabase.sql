@@ -26,9 +26,9 @@ BTSignal LONGTEXT,
 ModemType ENUM("EWM400", "EWM1000"),
 FirmwareNo VARCHAR(8),
 BatteryLevel FLOAT(3,2),
-SIMVodafone VARCHAR(20),
-SIMTelstra VARCHAR(20),
-SIMExternal VARCHAR(20)
+SIMVodafone CHAR(20),
+SIMTelstra CHAR(20),
+SIMExternal CHAR(20)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS Threshold(
